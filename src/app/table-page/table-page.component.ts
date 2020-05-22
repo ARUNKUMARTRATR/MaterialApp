@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { FormControl } from '@angular/forms';
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -24,37 +27,24 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./table-page.component.scss']
 })
 export class TablePageComponent implements OnInit {
+
+
   displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
+  col = new FormControl(this.displayedColumns);
+
+  columnsList = this.displayedColumns;
+
   columnsToDisplay: string[] = this.displayedColumns.slice();
+
   data: PeriodicElement[] = ELEMENT_DATA;
 
-  addColumn() {
-    const randomColumn = Math.floor(Math.random() * this.displayedColumns.length);
-    this.columnsToDisplay.push(this.displayedColumns[randomColumn]);
-  }
-
-  removeColumn() {
-    if (this.columnsToDisplay.length) {
-      this.columnsToDisplay.pop();
-    }
-  }
-
-  shuffle() {
-    let currentIndex = this.columnsToDisplay.length;
-    while (0 !== currentIndex) {
-      const randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // Swap
-      const temp = this.columnsToDisplay[currentIndex];
-      this.columnsToDisplay[currentIndex] = this.columnsToDisplay[randomIndex];
-      this.columnsToDisplay[randomIndex] = temp;
-    }
+  columnChange(event) {
+  this.columnsToDisplay = event.value;
   }
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
