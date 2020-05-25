@@ -13,7 +13,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     MatButtonModule,
     MatMenuModule,
+    MatListModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatCheckboxModule,

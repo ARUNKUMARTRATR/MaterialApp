@@ -41,7 +41,9 @@ export class TablePageComponent implements OnInit {
   columnChange(event) {
   this.columnsToDisplay = event.value;
   }
-
+test(event) {
+console.log(event);
+}
   constructor() { }
 
   ngOnInit() {

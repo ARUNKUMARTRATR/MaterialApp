@@ -12,4 +12,10 @@ padding: 5%;
 .selector {
   position: absolute;
   margin-left: 75vw;
+  margin-top: 2%;
+}
+.mat-cell,.mat-header-cell {
+  min-height: 48px;
+  text-align: center;
+  border-right: 1px solid rgb(212, 210, 210);
 }
